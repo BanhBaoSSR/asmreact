@@ -1,0 +1,59 @@
+/* ==========================================================================
+           GLOBAL CSS
+           Thiết lập các thông số chung: Cỡ chữ 12, bo góc rất ít, màu sắc chủ đạo
+           ========================================================================== */
+        html, body {
+            font-size: 12px; /* Cỡ chữ 12 theo yêu cầu */
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff; /* 80% Trắng */
+            color: #1a1a1a; /* 18% Đen */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Không bo góc quá nhiều (chỉ 2px) */
+        * {
+            border-radius: 2px !important;
+        }
+
+        /* Định nghĩa màu sắc Reusable */
+        .text-black { color: #1a1a1a !important; }
+        .text-red { color: #d90429 !important; } /* 2% Đỏ cho điểm nhấn */
+        .bg-black { background-color: #1a1a1a !important; }
+        .bg-red { background-color: #d90429 !important; }
+        
+        .btn-black { background-color: #1a1a1a; color: #ffffff; border: 1px solid #1a1a1a; }
+        .btn-black:hover { background-color: #ffffff; color: #1a1a1a; }
+        .btn-red { background-color: #d90429; color: #ffffff; border: 1px solid #d90429; }
+        .btn-red:hover { background-color: #a3001d; color: #ffffff; }
+
+        /* Tiện ích để xem các trang (Do gộp 1 file) */
+        .dev-nav { position: fixed; top: 0; width: 100%; z-index: 9999; background: #000; padding: 10px; overflow-x: auto; white-space: nowrap; }
+        .dev-nav a { color: #fff; margin-right: 15px; text-decoration: none; font-size: 11px; text-transform: uppercase; }
+        .dev-nav a:hover { color: #d90429; }
+        .page-section {  padding-top: 60px; min-height: 100vh; }
+        .page-section:target { display: block; }
+        /* Hiển thị trang index mặc định nếu không có hash */
+        #user-index { display: block; }
+        /* :target ~ #user-index { display: none; } */
+
+        /* ==========================================================================
+           ADMIN.CSS (Tách ra file admin.css trong dự án thực tế)
+           ========================================================================== */
+        
+        /* --- ADMIN LAYOUT --- */
+        .admin-wrapper { display: flex; min-height: 100vh; background: #f0f0f0; }
+        .admin-sidebar { width: 220px; background: #1a1a1a; color: #ffffff; padding-top: 20px; flex-shrink: 0; }
+        .admin-sidebar .brand { font-size: 16px; font-weight: bold; text-align: center; padding-bottom: 20px; border-bottom: 1px solid #333; margin-bottom: 20px; text-transform: uppercase; color: #d90429; }
+        .admin-sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .admin-sidebar ul li a { display: block; padding: 12px 20px; color: #ccc; text-decoration: none; border-left: 3px solid transparent; }
+        .admin-sidebar ul li a:hover, .admin-sidebar ul li a.active { background: #000000; color: #ffffff; border-left-color: #d90429; }
+        .admin-main { flex-grow: 1; padding: 30px; background: #ffffff; margin: 15px; border: 1px solid #ddd; }
+        
+        /* --- ADMIN COMPONENTS --- */
+        .admin-title { font-size: 18px; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .admin-stat-card { background: #ffffff; border: 1px solid #eaeaea; padding: 20px; text-align: center; border-top: 3px solid #1a1a1a; }
+        .admin-stat-card h3 { font-size: 24px; font-weight: bold; color: #d90429; margin: 10px 0 0; }
+        .admin-table th { background: #1a1a1a; color: #ffffff; text-transform: uppercase; font-weight: normal; font-size: 11px; }
+        .admin-table td { vertical-align: middle; }
