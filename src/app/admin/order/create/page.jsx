@@ -14,7 +14,7 @@ export default function CreateProduct() {
   const [image, setImage] = useState("");
   const [categories, setCategories] = useState([]);
 const fetchCategories = async () => {
-  const res = await fetch("http://localhost:3000/api/categories");
+  const res = await fetch("/api/categories");
   const data = await res.json();
   setCategories(data);
 };
@@ -30,7 +30,7 @@ useEffect(() => {
       image,
     };
 
-    const res = await fetch("http://localhost:3000/api/products", {
+    const res = await fetch("/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -8,7 +8,7 @@ export default function Category() {
   const [categories, setCategories] = useState([]);
 
   const fetchCategories = async () => {
-    const res = await fetch("http://localhost:3000/api/categories");
+    const res = await fetch("/api/categories");
     const data = await res.json();
     setCategories(data);
   };
@@ -20,7 +20,7 @@ export default function Category() {
   const handleDelete = async (id) => {
     if (!confirm("Xóa danh mục này?")) return;
 
-    const res = await fetch(`http://localhost:3000/api/categories/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/${id}`, {
       method: "DELETE",
     });
 

@@ -8,7 +8,7 @@ export default function User() {
   const [userList, setUserList] = useState([]);
 
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:3000/api/users");
+    const res = await fetch("/api/users");
     const data = await res.json();
     setUserList(data);
   };
@@ -20,7 +20,7 @@ export default function User() {
   const handleDelete = async (id) => {
     if (!confirm("Xóa user này?")) return;
 
-    const res = await fetch(`http://localhost:3000/api/users/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/${id}`, {
       method: "DELETE",
     });
 

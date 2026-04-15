@@ -21,7 +21,7 @@ export default function UpdateProduct() {
   const fetchProduct = async () => {
     if (!id) return;
 
-    const res = await fetch(`http://localhost:3000/api/products/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`);
     const data = await res.json();
 
     setName(data.name || "");
@@ -45,7 +45,7 @@ export default function UpdateProduct() {
       image,
     };
 
-    const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

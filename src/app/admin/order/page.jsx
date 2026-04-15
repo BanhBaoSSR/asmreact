@@ -7,7 +7,7 @@ export default function Order() {
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
-    const res = await fetch("http://localhost:3000/api/orders");
+    const res = await fetch("/api/orders");
     const data = await res.json();
     setOrders(data);
   };
@@ -19,7 +19,7 @@ export default function Order() {
   const handleDelete = async (id) => {
     if (!confirm("Xóa đơn này?")) return;
 
-    await fetch(`http://localhost:3000/api/orders/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders/${id}`, {
       method: "DELETE",
     });
 
@@ -41,7 +41,7 @@ export default function Order() {
 
     if (!nextStatus) return;
 
-    await fetch(`http://localhost:3000/api/orders/${order._id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders/${order._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: nextStatus }),

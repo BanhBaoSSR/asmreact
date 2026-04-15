@@ -6,7 +6,7 @@ export default async function Layout({params}) {
     const { id } = await params; 
 
     // 2. Truyền biến 'id' vào URL (không dùng _id)
-    const res = await fetch(`http://localhost:3000/api/products/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`);
 
     // 3. Code phòng thủ: Xử lý khi API không tìm thấy sản phẩm
     if (!res.ok) {

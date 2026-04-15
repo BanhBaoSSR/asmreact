@@ -13,7 +13,7 @@ export default function UpdateUser() {
   const [role, setRole] = useState("user");
 
   const fetchUser = async () => {
-    const res = await fetch(`http://localhost:3000/api/users/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/${id}`);
     const data = await res.json();
 
     setName(data.name || "");
@@ -26,7 +26,7 @@ export default function UpdateUser() {
   }, [id]);
 
   const handleUpdate = async () => {
-    const res = await fetch(`http://localhost:3000/api/users/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, role }),

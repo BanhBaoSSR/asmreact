@@ -9,7 +9,7 @@ export default function Product() {
   const [productList, setProductList] = useState([]);
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:3000/api/products");
+    const res = await fetch("/api/products");
     const data = await res.json();
     setProductList(data);
   };
@@ -24,7 +24,7 @@ export default function Product() {
   const confirmDelete = confirm("Bạn có chắc muốn xóa sản phẩm này?");
   if (!confirmDelete) return;
 
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`, {
   method: "DELETE",
 });
   console.log("Response:", res);

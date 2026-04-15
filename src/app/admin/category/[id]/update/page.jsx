@@ -12,7 +12,7 @@ export default function UpdateCategory() {
   const [name, setName] = useState("");
 
   const fetchCategory = async () => {
-    const res = await fetch(`http://localhost:3000/api/categories/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/${id}`);
     const data = await res.json();
 
     setCateId(data.id || "");
@@ -24,7 +24,7 @@ export default function UpdateCategory() {
   }, [id]);
 
   const handleUpdate = async () => {
-    const res = await fetch(`http://localhost:3000/api/categories/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: Number(cateId), name }),

@@ -10,7 +10,7 @@ export default function CreateCategory() {
   const [name, setName] = useState("");
 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:3000/api/categories", {
+    const res = await fetch("/api/categories", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

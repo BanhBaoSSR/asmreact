@@ -12,7 +12,7 @@ export default function CreateUser() {
   const [role, setRole] = useState("user");
 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:3000/api/users", {
+    const res = await fetch("/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
