@@ -3,7 +3,11 @@
 import AddToCart from "@/components/AddToCart";
 import { Children } from "react";
 export default async function Home() {
-    const res = await fetch('http://localhost:3000/api/products');
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products`,
+    { cache: "no-store" }
+  );
+
   const productList = await res.json();
     return (
         <main id="user-index" className="page-section">
